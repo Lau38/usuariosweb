@@ -56,8 +56,8 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
 
 
     return(
-        <Fragment >
-                 <h1><u>Buscate en la lista de usuarios!</u></h1>
+        <Fragment className="container-fluid">
+                 <h1>¡ BUSCATE EN LA LISTA DE USUARIOS !</h1>
 
             <Form.Control className="buscador"
               value={buscador}
@@ -66,7 +66,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
               placeholder="Escriba su usuario o nombre con la primer letra en mayuscula"
               
             />
-            <Button className="boton" onClick={consultarAPI}
+            <Button className="boton" onClick={handleChange}
             variant="primary">Eliminar busqueda</Button>
            
 

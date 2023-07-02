@@ -4,13 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Spinner from 'react-bootstrap/Spinner';
+import './header.css';
 
 
 const Header = () =>{
     return(
-        <Fragment>
+        <Fragment className="container-fluid">
  <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
-<Container>
+<Container >
         <Navbar.Brand >
         <Spinner className="Animacion" animation="border" size="sm" />
       <Spinner animation="border" />

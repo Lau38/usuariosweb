@@ -1,0 +1,20 @@
+.fot{
+    
+    position:relative;
+    left: 0;
+    bottom: 0;  
+    width: 100vw;
+    color:#fff;
+    text-align: center;
+    background-color: black;
+    margin-top: 5%;
+    
+}
+
+.col1{
+    width: 50vw;
+}
+
+.col2{
+    width: 50vw;
+}
