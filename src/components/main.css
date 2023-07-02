@@ -1,0 +1,46 @@
+h1{
+    text-align: center;
+    background-image: url(https://th.bing.com/th/id/OIP.bWlpwKd6al_WHOaHNj4pIgHaDu?pid=ImgDet&rs=1);
+    font-family:cursive;
+    padding: 5%;
+}
+
+.titulo{
+    
+        background-color:rgb(15, 15, 15);
+        text-align: center;
+        color: rgb(42, 135, 223);
+        border: solid 1px black;
+        
+    
+}
+
+.tabla{
+    
+    background-color: rgb(233, 208, 208);
+    margin: auto;
+    width: 80%;
+    border: solid 1px rgb(42, 135, 223);
+}
+
+
+
+.body{
+    text-align: center;
+}
+
+.buscador{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
+
+.boton{
+    margin-bottom: 5%;
+    margin-left: 3%;
+}
+
+.main{
+    background-color: aqua;
+}
+
