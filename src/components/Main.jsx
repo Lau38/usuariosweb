@@ -5,13 +5,34 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
+
 const Main = () =>{
+
+
 
 // creamos un hook para consultar API 
 //que voy a usarla para editar ese hook
 
 const [usuario,editar]= useState([]);
 
+const [eliminados,editarlos]=useState([]);
+
+const  eliminar= async (id) =>{
+    try{
+        const response= await fetch("https://jsonplaceholder.typicode.com/users/${id}",{
+            method:'DELETE',
+        });
+
+        if(response.ok){
+            editar(usuario.filter((usuario)=>usuario.id !== id));
+
+        }else{
+            console.log("Error")
+        }
+    }catch(error){
+        console.log("Error")
+    }
+};
 //Hook del buscador 
 
 const[buscador,editarBuscador]= useState("");
@@ -55,6 +76,8 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
 }
 
 
+
+
     return(
         <Fragment >
                  <h1>¡ BUSCATE EN LA LISTA DE USUARIOS !</h1>
@@ -87,19 +110,20 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
                         // result porque estoy mapeando el resultado del filter que hice arriba 
                         
                         result.map(usu=> (
-                            <tr>
+                            <tr key={usu.id}>
                                 
                                 <td>{usu.name}</td>
                                 <td>{usu.username}</td>
                                 <td>{usu.email}</td>
+                                <td><Button className="boton" onClick={()=>eliminar(usu.id)}
+            variant="primary">Eliminar</Button></td>
                             </tr>
                         ))
                     }
 
                 </tbody>
             </table>
-
-           
+                    
 
         </Fragment>
 
