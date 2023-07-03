@@ -15,7 +15,7 @@ const Main = () =>{
 
 const [usuario,editar]= useState([]);
 
-const [eliminados,editarlos]=useState([]);
+
 
 const  eliminar= async (id) =>{
     try{ //solicita delete a la api utilizando la url para eliminar el usuario con el id 
