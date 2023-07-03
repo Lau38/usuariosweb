@@ -1,20 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align:center ;
+}
+
+
+
 .fot{
     
     position:relative;
     left: 0;
     bottom: 0;  
-    width: 100vw;
     color:#fff;
     text-align: center;
     background-color: black;
     margin-top: 5%;
+    width: 100%;
+   
     
 }
 
+
 .col1{
-    width: 50vw;
+    width: 50%;
+    
 }
 
 .col2{
-    width: 50vw;
+    width: 50%;
+    
+}
+
+div{
+    width: 100%;
+    
 }

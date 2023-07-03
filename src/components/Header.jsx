@@ -9,7 +9,7 @@ import './header.css';
 
 const Header = () =>{
     return(
-        <Fragment className="container-fluid">
+        <Fragment >
  <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
 <Container >
         <Navbar.Brand >

@@ -16,7 +16,7 @@ function App() {
      
      <h3>Usuarios 2023</h3>
      
-      <Header /> 
+      <Header/> 
       <Main/>
       <Footer/>
       

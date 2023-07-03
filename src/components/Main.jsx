@@ -56,7 +56,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
 
 
     return(
-        <Fragment className="container-fluid">
+        <Fragment >
                  <h1>¡ BUSCATE EN LA LISTA DE USUARIOS !</h1>
 
             <Form.Control className="buscador"
@@ -75,7 +75,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
             
                 <thead>
                     <tr className="titulo">
-                            <th>ID</th>
+                           
                             <th>NOMBRE</th>
                             <th>NOMBRE DE USUARIO</th>
                             <th>CORREO</th>
@@ -88,7 +88,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
                         
                         result.map(usu=> (
                             <tr>
-                                <td>{usu.id}</td>
+                                
                                 <td>{usu.name}</td>
                                 <td>{usu.username}</td>
                                 <td>{usu.email}</td>
