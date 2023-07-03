@@ -18,14 +18,14 @@ const [usuario,editar]= useState([]);
 const [eliminados,editarlos]=useState([]);
 
 const  eliminar= async (id) =>{
-    try{
+    try{ //solicita delete a la api utilizando la url para eliminar el usuario con el id 
         const response= await fetch("https://jsonplaceholder.typicode.com/users/${id}",{
             method:'DELETE',
         });
 
-        if(response.ok){
+        if(response.ok){ // si la solicitud se completo el responde esta en true
             editar(usuario.filter((usuario)=>usuario.id !== id));
-
+            // se hace un filter y se excluye el usuario con ese id
         }else{
             console.log("Error")
         }
