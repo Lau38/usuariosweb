@@ -7,18 +7,24 @@ import Button from 'react-bootstrap/Button';
 
 
 const Main = () =>{
+
+
 //Inicio el local Storage
 let usuariosEliminados=JSON.parse(localStorage.getItem('usuario'));
-if(!usuariosEliminados){
+if(!usuariosEliminados){ //Si no hay nada cargado
     usuariosEliminados=[]
 };
 
 
-// creamos un hook para consultar API 
+// creamos un hook con una funcion
 //que voy a usarla para editar ese hook
 
 
 const [usuario,editar]= useState(usuariosEliminados);
+
+//Hook del buscador 
+
+const[buscador,editarBuscador]= useState("");
 
 
 // Hook useEffect: Sirve para ejecutar alguna funcionalidad
@@ -31,7 +37,7 @@ useEffect(()=>{
         localStorage.setItem('usuario',JSON.stringify([]));
     }
     
-},[usuariosEliminados]
+},[usuariosEliminados] //variable que va a escuchar
 );
 
 
@@ -42,9 +48,6 @@ const  eliminar =  (id) =>{
 
 };
 
-//Hook del buscador 
-
-const[buscador,editarBuscador]= useState("");
  
 
 
@@ -60,7 +63,7 @@ const consultarAPI= async()=>{
 }
    
 const obtenerEliminados=()=>{
-    consultarAPI()
+   consultarAPI()
  };
 
 //Funcion para recoger lo que el usuario ingresa en el buscador
@@ -81,54 +84,51 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
     )
 }
 
-
-
-
-
     return(
-        <Fragment >
+        <Fragment>
                  <h1>¡ BUSCATE EN LA LISTA DE USUARIOS !</h1>
 
-            <Form.Control className="buscador"
-              value={buscador}
-              onChange={handleChange}// onChange evento que permite tratar lo que el usuario ingresa 
-              type="search"
-              placeholder="Escriba su usuario o nombre con la primer letra en mayuscula"
+                     <Form.Control className="buscador"
+                         value={buscador}
+                        onChange={handleChange}// onChange evento que permite tratar lo que el usuario ingresa 
+                        type="search"
+                        placeholder="Escriba su usuario o nombre con la primer letra en mayuscula"
               
-            />
-            <Button className="boton" onClick={()=>obtenerEliminados()}
-            variant="primary">Obtener todos</Button>
+                    />
 
-            <table  className='tabla'>
+                    <Button className="boton" onClick={()=>obtenerEliminados()}
+                        variant="primary">Obtener todos</Button>
+
+                        <table  className='tabla'>
             
-                <thead>
-                    <tr className="titulo">
+                              <thead>
+                                 <tr className="titulo">
                            
-                            <th>NOMBRE</th>
-                            <th>NOMBRE DE USUARIO</th>
-                            <th>CORREO</th>
-                            <th>ELIMINAR USUARIO</th>
+                                 <th>NOMBRE</th>
+                                 <th>NOMBRE DE USUARIO</th>
+                                 <th>CORREO</th>
+                                 <th>ELIMINAR USUARIO</th>
 
-                    </tr>
-                </thead>
-                <tbody id="table"  className="body">
-                    { // map donde mapeo los datos de cada usuario
-                        // result porque estoy mapeando el resultado del filter que hice arriba 
+                                 </tr>
+                                 </thead>
+                            <tbody id="table"  className="body">
+                                 { // map donde mapeo los datos de cada usuario
+                                // result porque estoy mapeando el resultado del filter que hice arriba 
                         
-                        result.map(usu=> (
-                            <tr key={usu.id}>
+                                    result.map(usu=> (
+                                    <tr key={usu.id}>
                                 
-                                <td>{usu.name}</td>
-                                <td>{usu.username}</td>
-                                <td>{usu.email}</td>
-                                <td><Button className="boton" onClick={()=>eliminar(usu.id)}
-            variant="primary">Eliminar</Button></td>
-                            </tr>
-                        ))
-                    }
+                                        <td>{usu.name}</td>
+                                        <td>{usu.username}</td>
+                                        <td>{usu.email}</td>
+                                        <td><Button className="boton" onClick={()=>eliminar(usu.id)}
+                                        variant="primary">Eliminar</Button></td>
+                                    </tr>
+                                    ))
+                                }
 
-                </tbody>
-            </table>
+                                </tbody>
+                        </table>
                     
 
         </Fragment>

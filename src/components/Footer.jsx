@@ -22,7 +22,7 @@ const Footer = () =>{
                         </Col>
                     </Row>
                            
-                           </div>
+             </div>
 
         </Fragment>
 
