@@ -7,36 +7,46 @@ import Button from 'react-bootstrap/Button';
 
 
 const Main = () =>{
-
+//Inicio el local Storage
+let usuariosEliminados=JSON.parse(localStorage.getItem('usuario'));
+if(!usuariosEliminados){
+    usuariosEliminados=[]
+};
 
 
 // creamos un hook para consultar API 
 //que voy a usarla para editar ese hook
 
-const [usuario,editar]= useState([]);
+
+const [usuario,editar]= useState(usuariosEliminados);
 
 
-
-const  eliminar= async (id) =>{
-    try{ //solicita delete a la api utilizando la url para eliminar el usuario con el id 
-        const response= await fetch("https://jsonplaceholder.typicode.com/users/${id}",{
-            method:'DELETE',
-        });
-
-        if(response.ok){ // si la solicitud se completo el responde esta en true
-            editar(usuario.filter((usuario)=>usuario.id !== id));
-            // se hace un filter y se excluye el usuario con ese id
-        }else{
-            console.log("Error")
-        }
-    }catch(error){
-        console.log("Error")
+// Hook useEffect: Sirve para ejecutar alguna funcionalidad
+//cuando hay un cambioo en alguna variable/hook/situacion
+useEffect(()=>{
+    
+    if(usuariosEliminados){
+        localStorage.setItem('usuario',JSON.stringify(usuario));
+    }else{
+        localStorage.setItem('usuario',JSON.stringify([]));
     }
+    
+},[usuariosEliminados]
+);
+
+
+
+const  eliminar =  (id) =>{
+    const nuevoUsuario= usuario.filter(usuario=> usuario.id !== id);
+    editar(nuevoUsuario); // ahora sos nuevoCliente
+
 };
+
 //Hook del buscador 
 
 const[buscador,editarBuscador]= useState("");
  
+
 
 //Funcion para consultar API y dentro uso la funcion para editar el hook
 const consultarAPI= async()=>{
@@ -49,13 +59,9 @@ const consultarAPI= async()=>{
       };
 }
    
-// Hook useEffect: Sirve para ejecutar alguna funcionalidad
-//cuando hay un cambioo en alguna variable/hook/situacion
-useEffect(()=>{
+const obtenerEliminados=()=>{
     consultarAPI()
-},[]
-)
-
+ };
 
 //Funcion para recoger lo que el usuario ingresa en el buscador
 const handleChange =(e) =>{
@@ -78,6 +84,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
 
 
 
+
     return(
         <Fragment >
                  <h1>¡ BUSCATE EN LA LISTA DE USUARIOS !</h1>
@@ -89,10 +96,8 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
               placeholder="Escriba su usuario o nombre con la primer letra en mayuscula"
               
             />
-            <Button className="boton" onClick={handleChange}
-            variant="primary">Eliminar busqueda</Button>
-           
-
+            <Button className="boton" onClick={()=>obtenerEliminados()}
+            variant="primary">Obtener todos</Button>
 
             <table  className='tabla'>
             
@@ -102,6 +107,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
                             <th>NOMBRE</th>
                             <th>NOMBRE DE USUARIO</th>
                             <th>CORREO</th>
+                            <th>ELIMINAR USUARIO</th>
 
                     </tr>
                 </thead>
