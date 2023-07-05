@@ -11,14 +11,13 @@ const Main = () =>{
 
 //Inicio el local Storage
 let usuariosEliminados=JSON.parse(localStorage.getItem('usuario'));
-if(!usuariosEliminados){ //Si no hay nada cargado
+if(!usuariosEliminados){ 
     usuariosEliminados=[]
 };
 
 
 // creamos un hook con una funcion
 //que voy a usarla para editar ese hook
-
 
 const [usuario,editar]= useState(usuariosEliminados);
 
@@ -44,7 +43,7 @@ useEffect(()=>{
 
 const  eliminar =  (id) =>{
     const nuevoUsuario= usuario.filter(usuario=> usuario.id !== id);
-    editar(nuevoUsuario); // ahora sos nuevoCliente
+    editar(nuevoUsuario); 
 
 };
 
@@ -56,7 +55,7 @@ const consultarAPI= async()=>{
     try{
         const api=await fetch("https://jsonplaceholder.typicode.com/users");
         const resultado= await api.json();
-        editar(resultado); // resultado es lo que me devuelve la api
+        editar(resultado); 
       }catch(error){
         console.log(error)
       };
@@ -74,13 +73,12 @@ const handleChange =(e) =>{
 // Si el usuario no ingresa nada 
 
 let result=[]
-if(!buscador) // Si no inserta nada muestra el arreglo original
+if(!buscador)
 {
-    result=usuario // se queda con todos
-}else{ // si inserta me quedo con el dato que inserto 
+    result=usuario 
+}else{ 
     result= usuario.filter((u) => 
-    u.username.includes(buscador) || u.name.includes(buscador) // el includes se fija si la cadena de texto del primer usuario
-                                                                // esta incluida en la cadena de texto que ingreso el usu
+    u.username.includes(buscador) || u.name.includes(buscador) 
     )
 }
 
@@ -113,8 +111,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
                                  </tr>
                                  </thead>
                             <tbody id="table"  className="body">
-                                 { // map donde mapeo los datos de cada usuario
-                                // result porque estoy mapeando el resultado del filter que hice arriba 
+                                 { 
                         
                                     result.map(usu=> (
                                     <tr key={usu.id}>
@@ -124,6 +121,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
                                         <td>{usu.email}</td>
                                         <td><Button className="boton" onClick={()=>eliminar(usu.id)}
                                         variant="primary">Eliminar</Button></td>
+                                        
                                     </tr>
                                     ))
                                 }
