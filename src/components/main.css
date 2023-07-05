@@ -22,6 +22,12 @@ h1{
     
 }
 
+@media (max-width: 768px) {
+    .tabla-container {
+        overflow-x: auto;
+    }
+  }
+
 .tabla{
 
     background-color: rgb(233, 208, 208);
@@ -30,14 +36,22 @@ h1{
 }
 
 
-.table-container{
-    overflow-x: auto;
-}
+
 
 .body{
     text-align: center;
 }
 
+
+@media (max-width: 768px) {
+    .buscador {
+      width: 100%;
+      margin-bottom: 10px;
+      /* Agrega otros estilos específicos para el modo celular */
+    }
+  }
+
+  
 .buscador{
     margin-top: 5%;
     margin-bottom: 3%;
