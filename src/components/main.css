@@ -25,12 +25,14 @@ h1{
 .tabla{
 
     background-color: rgb(233, 208, 208);
-    width: 60%;
     margin: auto;
     border: solid 1px rgb(42, 135, 223);
 }
 
 
+.table-container{
+    overflow-x: auto;
+}
 
 .body{
     text-align: center;

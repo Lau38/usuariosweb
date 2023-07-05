@@ -99,6 +99,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
                     <Button className="boton" onClick={()=>obtenerEliminados()}
                         variant="primary">Obtener todos</Button>
 
+                    <div className="table-container">
                         <table  className='tabla'>
             
                               <thead>
@@ -129,7 +130,7 @@ if(!buscador) // Si no inserta nada muestra el arreglo original
 
                                 </tbody>
                         </table>
-                    
+                    </div>           
 
         </Fragment>
 

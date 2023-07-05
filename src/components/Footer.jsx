@@ -7,8 +7,8 @@ import './footer.css';
 const Footer = () =>{
     return(
         <Fragment >
-             <div  className="fot" >
-                    
+             
+            <div className="fot">
                     <Row id="footer"  md={2}>
                         <Col className="col1">
                         <a href="https://www.instagram.com/"><li><img src="https://i0.wp.com/eltallerdehector.com/wp-content/uploads/2022/06/cd939-logo-instagram-png.png?resize=512%2C512&ssl=1" height="40" width="50" ></img></li></a>
@@ -22,8 +22,8 @@ const Footer = () =>{
                         </Col>
                     </Row>
                            
-             </div>
-
+             
+            </div>
         </Fragment>
 
     );
